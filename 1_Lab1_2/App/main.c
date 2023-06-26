@@ -28,8 +28,6 @@ Check		:
 	etc. Variable
 ======================================================================*/
 Uint16 counter=0;
-Uint16 Flag = 0;
-Uint32  SetReg = 0;
 
 void main(void)
 {
@@ -120,15 +118,6 @@ void main(void)
     {
         F28x_usDelay(1000000);
         counter++;
-
-        if(1==Flag)
-        {
-            EALLOW;
-            *(volatile Uint16*)0x00007C0A = SetReg;
-            //*(volatile Uint32*)0x00007C0A = SetReg;
-            EDIS;
-            Flag = 0;
-        }
     }
 
 }
